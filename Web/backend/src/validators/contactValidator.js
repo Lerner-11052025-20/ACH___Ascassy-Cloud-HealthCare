@@ -34,9 +34,16 @@ export function validateInquiry(body = {}, { requireOrganization = false } = {})
   else if (message.length < 10) errors.message = 'Please share a little more detail.';
 
   const preferredContactTime = cleanString(body.preferredContactTime, 200);
+
   const consent = cleanBool(body.consent);
-  // Honeypot — if any of these have content, treat as spam silently
-  const honey = cleanString(body.website, 1) || cleanString(body.url, 1);
+  if (!consent) errors.consent = 'Please confirm you agree to be contacted.';
+
+  // Honeypot fields — if any of these contain text, the submission is from a bot.
+  // The honeypot inputs are visually hidden in the UI; humans never see them.
+  const honey =
+    cleanString(body.website, 1) ||
+    cleanString(body.url, 1) ||
+    cleanString(body.company_website, 1);
   if (honey) errors.spam = 'Submission rejected.';
 
   return {

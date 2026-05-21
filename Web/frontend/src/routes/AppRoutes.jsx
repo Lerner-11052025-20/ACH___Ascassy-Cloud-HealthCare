@@ -1,31 +1,38 @@
-// Application route tree. All marketing pages + legal pages + 404.
+// Application route tree. Home is eagerly loaded for the first-paint experience;
+// every other page is split into its own chunk via React.lazy and resolved through
+// Suspense to keep the initial JS bundle small.
+import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import HomePage from '../pages/HomePage.jsx';
-import AboutPage from '../pages/AboutPage.jsx';
-import OfferingsPage from '../pages/OfferingsPage.jsx';
-import PharmaPOSPage from '../pages/PharmaPOSPage.jsx';
-import ForPharmaciesPage from '../pages/ForPharmaciesPage.jsx';
-import HealthcareCloudPage from '../pages/HealthcareCloudPage.jsx';
-import CureInsightsPage from '../pages/CureInsightsPage.jsx';
-import ContactPage from '../pages/ContactPage.jsx';
-import PrivacyPolicyPage from '../pages/PrivacyPolicyPage.jsx';
-import TermsPage from '../pages/TermsPage.jsx';
-import NotFoundPage from '../pages/NotFoundPage.jsx';
+import Loading from '../components/common/Loading.jsx';
+
+const AboutPage = lazy(() => import('../pages/AboutPage.jsx'));
+const OfferingsPage = lazy(() => import('../pages/OfferingsPage.jsx'));
+const PharmaPOSPage = lazy(() => import('../pages/PharmaPOSPage.jsx'));
+const ForPharmaciesPage = lazy(() => import('../pages/ForPharmaciesPage.jsx'));
+const HealthcareCloudPage = lazy(() => import('../pages/HealthcareCloudPage.jsx'));
+const CureInsightsPage = lazy(() => import('../pages/CureInsightsPage.jsx'));
+const ContactPage = lazy(() => import('../pages/ContactPage.jsx'));
+const PrivacyPolicyPage = lazy(() => import('../pages/PrivacyPolicyPage.jsx'));
+const TermsPage = lazy(() => import('../pages/TermsPage.jsx'));
+const NotFoundPage = lazy(() => import('../pages/NotFoundPage.jsx'));
 
 export default function AppRoutes() {
   return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/about" element={<AboutPage />} />
-      <Route path="/offerings" element={<OfferingsPage />} />
-      <Route path="/pharmapos" element={<PharmaPOSPage />} />
-      <Route path="/for-pharmacies" element={<ForPharmaciesPage />} />
-      <Route path="/healthcare-cloud" element={<HealthcareCloudPage />} />
-      <Route path="/cureinsights" element={<CureInsightsPage />} />
-      <Route path="/contact" element={<ContactPage />} />
-      <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-      <Route path="/terms" element={<TermsPage />} />
-      <Route path="*" element={<NotFoundPage />} />
-    </Routes>
+    <Suspense fallback={<Loading />}>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/offerings" element={<OfferingsPage />} />
+        <Route path="/pharmapos" element={<PharmaPOSPage />} />
+        <Route path="/for-pharmacies" element={<ForPharmaciesPage />} />
+        <Route path="/healthcare-cloud" element={<HealthcareCloudPage />} />
+        <Route path="/cureinsights" element={<CureInsightsPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+        <Route path="/terms" element={<TermsPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    </Suspense>
   );
 }

@@ -43,6 +43,8 @@ export default function ContactPage() {
     message: '',
     preferredContactTime: '',
     consent: false,
+    // Honeypot — must remain empty. Hidden visually; bots fill it; backend rejects it.
+    company_website: '',
   });
   const [status, setStatus] = useState({ state: 'idle', message: '' });
 
@@ -78,6 +80,7 @@ export default function ContactPage() {
         message: '',
         preferredContactTime: '',
         consent: false,
+        company_website: '',
       });
     } catch (err) {
       setStatus({
@@ -113,6 +116,19 @@ export default function ContactPage() {
               />
 
               <form onSubmit={handleSubmit} className="mt-10 grid gap-5 sm:grid-cols-2" noValidate>
+                {/* Honeypot — visually hidden, off-screen, ignored by humans, filled by bots. */}
+                <div aria-hidden="true" className="pointer-events-none absolute -left-[9999px] top-auto h-0 w-0 overflow-hidden">
+                  <label htmlFor="company_website">Company Website</label>
+                  <input
+                    id="company_website"
+                    name="company_website"
+                    type="text"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={form.company_website}
+                    onChange={(e) => update('company_website', e.target.value)}
+                  />
+                </div>
                 <FormInput
                   id="name"
                   label="Full Name"

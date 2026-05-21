@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="60%" stop-color="#1E3A8A"/>
+      <stop offset="100%" stop-color="#0D9488"/>
+    </linearGradient>
+    <linearGradient id="mark" x1="0" y1="0" x2="160" y2="160" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#14B8A6"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.8" cy="0.2" r="0.8">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#38BDF8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <g transform="translate(96, 132)">
+    <rect width="120" height="120" rx="28" fill="url(#mark)"/>
+    <path d="M44 86 L44 36 L78 36 C95 36 105 46 105 60 C105 74 95 82 78 82 L56 82 L56 86 Z M56 50 L56 70 L78 70 C85 70 91 66 91 60 C91 54 85 50 78 50 Z" fill="#FFFFFF"/>
+    <circle cx="92" cy="92" r="8" fill="#67E8F9"/>
+  </g>
+  <text x="96" y="346" font-family="'Plus Jakarta Sans', 'Inter', system-ui, sans-serif" font-size="72" font-weight="800" fill="#FFFFFF" letter-spacing="-2">
+    Ascassy Cloud Healthcare
+  </text>
+  <text x="96" y="412" font-family="'Inter', system-ui, sans-serif" font-size="34" font-weight="500" fill="#CBD5E1">
+    Cloud Healthcare Infrastructure for Modern India
+  </text>
+  <text x="96" y="528" font-family="'Inter', system-ui, sans-serif" font-size="26" font-weight="500" fill="#67E8F9">
+    Ascassy PharmaPOS · Ascassy CureInsights · Healthcare Cloud
+  </text>
+  <text x="96" y="572" font-family="'Inter', system-ui, sans-serif" font-size="20" font-weight="400" fill="#94A3B8">
+    ascassy.com
+  </text>
+</svg>

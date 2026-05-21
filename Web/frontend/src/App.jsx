@@ -2,6 +2,7 @@
 import AppRoutes from './routes/AppRoutes.jsx';
 import Navbar from './components/layout/Navbar.jsx';
 import Footer from './components/layout/Footer.jsx';
+import MobileStickyCTA from './components/layout/MobileStickyCTA.jsx';
 import ScrollToTop from './components/common/ScrollToTop.jsx';
 
 export default function App() {
@@ -13,6 +14,7 @@ export default function App() {
         <AppRoutes />
       </main>
       <Footer />
+      <MobileStickyCTA />
     </div>
   );
 }

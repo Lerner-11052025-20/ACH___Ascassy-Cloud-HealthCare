@@ -30,11 +30,32 @@ import { offerings, productBridges } from '../data/offerings.js';
 import { pharmaposHomePreviewFeatures, pharmaposPainPoints, pharmaposBenefits } from '../data/pharmapos.js';
 import { categoriesServed } from '../data/site.js';
 
+const HOME_STRUCTURED_DATA = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Ascassy Cloud Healthcare',
+  legalName: 'Ascassy Cloud Healthcare Pvt Ltd',
+  url: 'https://ascassy.com',
+  logo: 'https://ascassy.com/og-image.svg',
+  description:
+    'Ascassy Cloud Healthcare connects pharmacies, doctors, clinics, patients, and digital health workflows in one cloud-first ecosystem.',
+  areaServed: 'IN',
+  contactPoint: [
+    {
+      '@type': 'ContactPoint',
+      contactType: 'customer support',
+      email: 'hello@ascassy.com',
+      availableLanguage: ['English', 'Hindi'],
+    },
+  ],
+};
+
 export default function HomePage() {
   return (
     <PageWrapper
       title="Ascassy Cloud Healthcare — Cloud Healthcare Infrastructure for Modern India"
       description="Ascassy Cloud Healthcare connects pharmacies, doctors, clinics, patients, and digital health workflows in one cloud-first ecosystem. Discover Ascassy PharmaPOS — pharmacy retail infrastructure built for modern operations."
+      structuredData={HOME_STRUCTURED_DATA}
     >
       {/* 2. Premium Hero ------------------------------------------------ */}
       <section className="relative isolate overflow-hidden bg-gradient-to-b from-brand-50/60 via-white to-white">
