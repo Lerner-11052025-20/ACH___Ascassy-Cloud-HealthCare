@@ -1,0 +1,26 @@
+# Security + caching headers for Netlify and Cloudflare Pages.
+# Other hosts (Vercel, Apache, IIS) have their own config files in this folder
+# or at the project root.
+
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+# Hashed asset bundles can be cached aggressively.
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# HTML must always revalidate so new deploys land instantly.
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Crawler files: short cache.
+/robots.txt
+  Cache-Control: public, max-age=3600
+/sitemap.xml
+  Cache-Control: public, max-age=3600
+/og-image.svg
+  Cache-Control: public, max-age=86400

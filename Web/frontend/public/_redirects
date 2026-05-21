@@ -1,0 +1,6 @@
+# SPA fallback for Netlify and Cloudflare Pages.
+# Every unmatched path serves /index.html (HTTP 200 — not a 301/302) so the
+# React Router client can resolve the route, and refreshing /pharmapos or any
+# deep link does not return a 404.
+
+/*  /index.html  200
