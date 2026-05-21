@@ -1,0 +1,133 @@
+/*
+  Ascassy Cloud Healthcare — Global Styles
+  Tailwind CSS v4.3 with @theme tokens locked from BEGiN Phase 3 design system.
+*/
+
+@import "tailwindcss";
+
+@theme {
+  /* === Brand Blue (Medical / Cloud) — primary === */
+  --color-brand-50: #EFF6FF;
+  --color-brand-100: #DBEAFE;
+  --color-brand-200: #BFDBFE;
+  --color-brand-300: #93C5FD;
+  --color-brand-400: #60A5FA;
+  --color-brand-500: #3B82F6;
+  --color-brand-600: #2563EB;
+  --color-brand-700: #1D4ED8;
+  --color-brand-800: #1E40AF;
+  --color-brand-900: #1E3A8A;
+
+  /* === Teal (Healthcare) — secondary === */
+  --color-teal-50: #F0FDFA;
+  --color-teal-100: #CCFBF1;
+  --color-teal-400: #2DD4BF;
+  --color-teal-500: #14B8A6;
+  --color-teal-600: #0D9488;
+  --color-teal-700: #0F766E;
+
+  /* === Navy (Premium contrast) === */
+  --color-navy-700: #334155;
+  --color-navy-800: #1E293B;
+  --color-navy-900: #0F172A;
+  --color-navy-950: #020617;
+
+  /* === Cloud Blue / Cyan (Atmospheric accents) === */
+  --color-cloud-300: #7DD3FC;
+  --color-cloud-400: #38BDF8;
+  --color-cloud-500: #0EA5E9;
+  --color-cyan-200: #A5F3FC;
+  --color-cyan-300: #67E8F9;
+
+  /* === Neutrals === */
+  --color-ink-900: #0F172A;
+  --color-ink-700: #334155;
+  --color-ink-500: #64748B;
+  --color-ink-300: #CBD5E1;
+  --color-ink-200: #E2E8F0;
+  --color-ink-100: #F1F5F9;
+  --color-ink-50: #F8FAFC;
+  --color-canvas: #FFFFFF;
+
+  /* === Typography === */
+  --font-sans: "Inter", "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+
+  /* === Radius === */
+  --radius-button: 0.75rem;
+  --radius-card: 1rem;
+  --radius-input: 0.625rem;
+  --radius-pill: 9999px;
+
+  /* === Shadows (soft, premium) === */
+  --shadow-soft: 0 1px 2px rgba(15, 23, 42, 0.04), 0 4px 12px rgba(15, 23, 42, 0.05);
+  --shadow-card: 0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px rgba(15, 23, 42, 0.06);
+  --shadow-lift: 0 12px 32px rgba(15, 23, 42, 0.08);
+  --shadow-floating: 0 24px 60px rgba(15, 23, 42, 0.14);
+  --shadow-glow-brand: 0 12px 40px rgba(37, 99, 235, 0.25);
+}
+
+/* === Base reset / global rhythm === */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-ink-900);
+  background-color: var(--color-canvas);
+  font-size: 1rem;
+  line-height: 1.6;
+  min-height: 100dvh;
+}
+
+::selection {
+  background-color: var(--color-brand-600);
+  color: #ffffff;
+}
+
+/* Custom scrollbar — subtle premium */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-ink-50);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-ink-300);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-ink-500);
+}
+
+/* Focus ring (accessibility) */
+:where(button, a, input, textarea, select, [tabindex]):focus-visible {
+  outline: 2px solid var(--color-brand-600);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Utility — atmospheric gradient text */
+.text-gradient-brand {
+  background: linear-gradient(120deg, var(--color-brand-600), var(--color-teal-500));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
