@@ -6,3 +6,6 @@ export { default as ExpiryMockup } from './ExpiryMockup.jsx';
 export { default as InventoryMockup } from './InventoryMockup.jsx';
 export { default as PrescriptionsMockup } from './PrescriptionsMockup.jsx';
 export { default as BillingMockup } from './BillingMockup.jsx';
+export { default as ReportsMockup } from './ReportsMockup.jsx';
+export { default as UsersMockup } from './UsersMockup.jsx';
+export { default as SettingsMockup } from './SettingsMockup.jsx';

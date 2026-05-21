@@ -11,6 +11,7 @@ import SectionHeader from '../components/common/SectionHeader.jsx';
 import Button from '../components/ui/Button.jsx';
 import FeatureCard from '../components/ui/FeatureCard.jsx';
 import FAQAccordion from '../components/ui/FAQAccordion.jsx';
+import PharmaPOSPreview from '../components/ui/PharmaPOSPreview.jsx';
 import { stagger, inViewOnce } from '../utils/motion.js';
 import { cureInsightsServices, cureInsightsFAQ } from '../data/cureinsights.js';
 
@@ -25,6 +26,13 @@ export default function CureInsightsPage() {
         title="Cloud-first access to healthcare services and coordination."
         description="CureInsights is designed to simplify access to healthcare services, records, prescriptions, pharmacy support, and diagnostic service coordination through a cloud-first experience."
         badgeTone="teal"
+        visual={
+          <PharmaPOSPreview
+            tabs={['rx', 'overview', 'inventory']}
+            defaultTab="rx"
+            size="compact"
+          />
+        }
       >
         <Button to="/contact" variant="primary">Get in Touch</Button>
         <Button to="/healthcare-cloud" variant="outline">Healthcare Cloud</Button>

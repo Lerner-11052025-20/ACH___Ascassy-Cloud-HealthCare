@@ -14,7 +14,7 @@ import FeatureCard from '../components/ui/FeatureCard.jsx';
 import ProblemCard from '../components/ui/ProblemCard.jsx';
 import BenefitCard from '../components/ui/BenefitCard.jsx';
 import FAQAccordion from '../components/ui/FAQAccordion.jsx';
-import { OverviewMockup, ExpiryMockup } from '../components/ui/mockups/index.js';
+import { BillingMockup, ExpiryMockup } from '../components/ui/mockups/index.js';
 import PharmaPOSPreview from '../components/ui/PharmaPOSPreview.jsx';
 import { fadeUp, stagger, inViewOnce } from '../utils/motion.js';
 import {
@@ -77,7 +77,8 @@ export default function PharmaPOSPage() {
           >
             <div className="relative">
               <div aria-hidden="true" className="absolute -inset-8 -z-10 rounded-[2rem] bg-gradient-to-br from-brand-200/40 via-white to-teal-200/40 blur-2xl" />
-              <OverviewMockup />
+              {/* PharmaPOS hero — Billing view to differ from Home's Overview hero */}
+              <BillingMockup />
             </div>
           </motion.div>
         </Container>

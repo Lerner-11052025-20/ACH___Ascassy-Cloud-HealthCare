@@ -10,6 +10,7 @@ import SectionHeader from '../components/common/SectionHeader.jsx';
 import Button from '../components/ui/Button.jsx';
 import OfferingCard from '../components/ui/OfferingCard.jsx';
 import FeatureCard from '../components/ui/FeatureCard.jsx';
+import PharmaPOSPreview from '../components/ui/PharmaPOSPreview.jsx';
 import { stagger, inViewOnce } from '../utils/motion.js';
 import { offerings, productBridges } from '../data/offerings.js';
 import { ecosystemLayers } from '../data/ecosystem.js';
@@ -24,6 +25,13 @@ export default function OfferingsPage() {
         eyebrow="Offerings"
         title="A connected ecosystem of healthcare layers."
         description="Ascassy spans identity, access, clinical, and care layers — designed to work together, not in silos."
+        visual={
+          <PharmaPOSPreview
+            tabs={['users', 'inventory', 'ai']}
+            defaultTab="users"
+            size="compact"
+          />
+        }
       >
         <Button to="/contact" variant="primary">Talk to Us</Button>
         <Button to="/pharmapos" variant="outline">Explore PharmaPOS</Button>

@@ -12,6 +12,7 @@ import Button from '../components/ui/Button.jsx';
 import FormInput from '../components/ui/FormInput.jsx';
 import FormTextarea from '../components/ui/FormTextarea.jsx';
 import FormSelect from '../components/ui/FormSelect.jsx';
+import PharmaPOSPreview from '../components/ui/PharmaPOSPreview.jsx';
 import { contactDetails } from '../data/site.js';
 
 // Configure the backend base URL via VITE_API_BASE_URL; falls back to local dev port.
@@ -102,6 +103,13 @@ export default function ContactPage() {
         title="Let's build smarter healthcare workflows together."
         description="Reach out to Ascassy for product demos, partnerships, pharmacy POS inquiries, or healthcare cloud collaboration."
         badgeTone="brand"
+        visual={
+          <PharmaPOSPreview
+            tabs={['settings', 'users', 'billing']}
+            defaultTab="settings"
+            size="compact"
+          />
+        }
       />
 
       <SectionWrapper tone="white">

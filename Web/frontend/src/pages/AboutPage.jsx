@@ -9,6 +9,7 @@ import Container from '../components/common/Container.jsx';
 import SectionHeader from '../components/common/SectionHeader.jsx';
 import Button from '../components/ui/Button.jsx';
 import FeatureCard from '../components/ui/FeatureCard.jsx';
+import PharmaPOSPreview from '../components/ui/PharmaPOSPreview.jsx';
 import { fadeUp, stagger, inViewOnce } from '../utils/motion.js';
 import { companyValues } from '../data/aboutValues.js';
 import { ecosystemLayers } from '../data/ecosystem.js';
@@ -23,6 +24,13 @@ export default function AboutPage() {
         eyebrow="About Ascassy"
         title="Building cloud healthcare infrastructure for a more connected India."
         description="Ascassy is a healthcare technology company. We build the operational and cloud layers that modern healthcare needs — starting with pharmacy retail, expanding outward into doctors, clinics, patients, and connected workflows."
+        visual={
+          <PharmaPOSPreview
+            tabs={['reports', 'overview', 'ai']}
+            defaultTab="reports"
+            size="compact"
+          />
+        }
       >
         <Button to="/contact" variant="primary">Talk to the Team</Button>
         <Button to="/offerings" variant="outline">View Offerings</Button>
