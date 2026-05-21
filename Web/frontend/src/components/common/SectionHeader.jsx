@@ -1,5 +1,4 @@
-// Standard section header — eyebrow + title + optional description.
-// Used by every section to maintain rhythm across the site.
+// Standard section header — eyebrow + title + optional description, theme-aware.
 import { motion } from 'framer-motion';
 import { cn } from '../../utils/cn.js';
 import { fadeUp } from '../../utils/motion.js';
@@ -31,7 +30,7 @@ export default function SectionHeader({
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.3 }}
-        className="font-display text-3xl font-bold tracking-tight text-navy-900 sm:text-4xl lg:text-[2.75rem] lg:leading-[1.15]"
+        className="font-display text-3xl font-bold tracking-tight text-fg sm:text-4xl lg:text-[2.75rem] lg:leading-[1.15]"
       >
         {title}
       </motion.h2>
@@ -42,7 +41,7 @@ export default function SectionHeader({
           whileInView="show"
           viewport={{ once: true, amount: 0.3 }}
           className={cn(
-            'text-base leading-relaxed text-ink-500 sm:text-lg',
+            'text-base leading-relaxed text-fg-muted sm:text-lg',
             isCenter ? 'max-w-2xl' : 'max-w-3xl',
           )}
         >

@@ -1,11 +1,11 @@
 // PageHero — reusable hero block for non-Home pages.
-// Provides consistent eyebrow + title + sub + optional CTAs + atmospheric gradient.
-// When `visual` is provided, the hero switches to a two-column split layout on
-// desktop (text left, mockup/visual right) and stacks on mobile.
+// Theme-aware gradient, atmospheric blobs, optional right-side visual slot,
+// and a subtle grid pattern background.
 import { motion } from 'framer-motion';
 import Container from '../common/Container.jsx';
 import GradientBlob from '../common/GradientBlob.jsx';
 import Badge from '../common/Badge.jsx';
+import { GridPattern } from '../fx/index.js';
 import { cn } from '../../utils/cn.js';
 import { fadeUp, stagger } from '../../utils/motion.js';
 
@@ -20,11 +20,18 @@ export default function PageHero({
   className = '',
 }) {
   const hasVisual = Boolean(visual);
-  // Centering doesn't make sense alongside a side visual — force left alignment in that case.
   const isCenter = align === 'center' && !hasVisual;
 
   return (
-    <section className={cn('relative isolate overflow-hidden bg-gradient-to-b from-brand-50/60 via-white to-white', className)}>
+    <section
+      className={cn(
+        'relative isolate overflow-hidden',
+        'bg-gradient-to-b from-brand-50/60 via-canvas to-canvas',
+        'dark:from-brand-500/8 dark:via-canvas dark:to-canvas',
+        className,
+      )}
+    >
+      <GridPattern variant="grid" fade />
       <GradientBlob className="-top-32 -right-20" from="from-brand-200/70" via="via-cloud-300/40" to="to-teal-200/50" size="h-[640px] w-[640px]" />
       <GradientBlob className="-bottom-40 -left-20" from="from-teal-100/60" via="via-cyan-200/30" to="to-brand-100/40" size="h-[520px] w-[520px]" />
       <Container className={cn(hasVisual ? 'py-16 sm:py-20 lg:py-24' : 'py-20 sm:py-24 lg:py-32')}>
@@ -47,7 +54,7 @@ export default function PageHero({
             <motion.h1
               variants={fadeUp}
               className={cn(
-                'font-display font-bold tracking-tight text-navy-900',
+                'font-display font-bold tracking-tight text-fg',
                 hasVisual
                   ? 'text-4xl sm:text-5xl lg:text-[3.25rem] lg:leading-[1.08]'
                   : 'max-w-4xl text-4xl sm:text-5xl lg:text-6xl lg:leading-[1.1]',
@@ -59,7 +66,7 @@ export default function PageHero({
               <motion.p
                 variants={fadeUp}
                 className={cn(
-                  'text-lg leading-relaxed text-ink-700 sm:text-xl',
+                  'text-lg leading-relaxed text-fg-muted sm:text-xl',
                   isCenter ? 'max-w-3xl' : 'max-w-2xl',
                 )}
               >

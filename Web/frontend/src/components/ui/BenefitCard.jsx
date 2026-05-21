@@ -1,4 +1,4 @@
-// BenefitCard — outcome-led, lighter than FeatureCard. Icon on top, short outcome below.
+// BenefitCard — outcome-led, lighter than FeatureCard. Theme-aware.
 import { motion } from 'framer-motion';
 import { cn } from '../../utils/cn.js';
 import { fadeUp } from '../../utils/motion.js';
@@ -8,7 +8,7 @@ export default function BenefitCard({ icon: Icon, title, description, className 
     <motion.div
       variants={fadeUp}
       className={cn(
-        'flex flex-col gap-3 rounded-card border border-ink-100 bg-white/70 p-6 backdrop-blur transition hover:bg-white hover:shadow-card',
+        'flex flex-col gap-3 rounded-card border border-line bg-surface/70 p-6 backdrop-blur transition hover:bg-surface hover:shadow-card hover:-translate-y-0.5',
         className,
       )}
     >
@@ -18,8 +18,8 @@ export default function BenefitCard({ icon: Icon, title, description, className 
         </span>
       ) : null}
       <div className="flex flex-col gap-1">
-        <h3 className="font-display text-base font-semibold text-navy-900">{title}</h3>
-        <p className="text-sm leading-relaxed text-ink-700">{description}</p>
+        <h3 className="font-display text-base font-semibold text-fg">{title}</h3>
+        <p className="text-sm leading-relaxed text-fg-muted">{description}</p>
       </div>
     </motion.div>
   );

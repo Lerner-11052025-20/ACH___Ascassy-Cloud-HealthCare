@@ -45,7 +45,7 @@ export default function CureInsightsPage() {
             eyebrow="What CureInsights Is"
             title="A cloud healthcare service layer for modern access."
           />
-          <div className="mt-8 flex flex-col gap-5 text-lg leading-relaxed text-ink-700">
+          <div className="mt-8 flex flex-col gap-5 text-lg leading-relaxed text-fg-muted">
             <p>
               CureInsights is the patient-facing cloud healthcare service brand of the Ascassy ecosystem.
               It is designed to make healthcare services easier to access, coordinate, and follow up on —
@@ -88,7 +88,7 @@ export default function CureInsightsPage() {
             eyebrow="Trust & Access"
             title="Healthcare needs care, not hype."
           />
-          <div className="mt-8 flex flex-col gap-5 text-lg leading-relaxed text-ink-700">
+          <div className="mt-8 flex flex-col gap-5 text-lg leading-relaxed text-fg-muted">
             <p>
               CureInsights is built with care for healthcare data, accessibility, and the realities of how
               people actually access services today. It does not claim to replace clinical care, diagnose
@@ -104,7 +104,7 @@ export default function CureInsightsPage() {
               <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-teal-100 text-teal-700">
                 <ShieldCheck className="h-4 w-4" aria-hidden="true" />
               </span>
-              <p className="text-sm leading-relaxed text-navy-900">
+              <p className="text-sm leading-relaxed text-fg">
                 <span className="font-semibold">A clear note:</span> CureInsights supports the access and
                 coordination of healthcare services. It is not a substitute for clinical diagnosis,
                 treatment, or the judgment of qualified medical professionals.

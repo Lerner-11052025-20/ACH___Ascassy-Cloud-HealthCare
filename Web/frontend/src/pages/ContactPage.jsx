@@ -197,7 +197,7 @@ export default function ContactPage() {
                   className="sm:col-span-2"
                 />
 
-                <label className="flex items-start gap-3 text-sm text-ink-700 sm:col-span-2">
+                <label className="flex items-start gap-3 text-sm text-fg-muted sm:col-span-2">
                   <input
                     type="checkbox"
                     checked={form.consent}
@@ -244,9 +244,9 @@ export default function ContactPage() {
             {/* Contact details + trust */}
             <aside className="lg:col-span-5">
               <div className="sticky top-28 flex flex-col gap-6">
-                <div className="rounded-card border border-ink-100 bg-white p-6 shadow-card sm:p-8">
-                  <h3 className="font-display text-lg font-semibold text-navy-900">Reach Us Directly</h3>
-                  <ul className="mt-5 flex flex-col gap-4 text-sm text-ink-700">
+                <div className="rounded-card border border-line bg-surface p-6 shadow-card sm:p-8">
+                  <h3 className="font-display text-lg font-semibold text-fg">Reach Us Directly</h3>
+                  <ul className="mt-5 flex flex-col gap-4 text-sm text-fg-muted">
                     <li className="flex items-start gap-3">
                       <Mail className="mt-0.5 h-4 w-4 text-brand-600" aria-hidden="true" />
                       <a href={`mailto:${contactDetails.email}`} className="hover:text-brand-700">
@@ -270,13 +270,13 @@ export default function ContactPage() {
                   </ul>
                 </div>
 
-                <div className="rounded-card border border-ink-100 bg-ink-50/60 p-6 sm:p-8">
-                  <h3 className="font-display text-lg font-semibold text-navy-900">Inquiry Types</h3>
-                  <ul className="mt-4 flex flex-col gap-3 text-sm text-ink-700">
-                    <li><span className="font-semibold text-navy-900">Demo:</span> Walk through PharmaPOS or the Ascassy ecosystem with our team.</li>
-                    <li><span className="font-semibold text-navy-900">Partnership:</span> Healthcare partners, integrators, ecosystem builders.</li>
-                    <li><span className="font-semibold text-navy-900">General:</span> Questions, conversations, exploratory chats.</li>
-                    <li><span className="font-semibold text-navy-900">Support:</span> Existing customer or pilot support.</li>
+                <div className="rounded-card border border-line bg-surface-muted/60 p-6 sm:p-8">
+                  <h3 className="font-display text-lg font-semibold text-fg">Inquiry Types</h3>
+                  <ul className="mt-4 flex flex-col gap-3 text-sm text-fg-muted">
+                    <li><span className="font-semibold text-fg">Demo:</span> Walk through PharmaPOS or the Ascassy ecosystem with our team.</li>
+                    <li><span className="font-semibold text-fg">Partnership:</span> Healthcare partners, integrators, ecosystem builders.</li>
+                    <li><span className="font-semibold text-fg">General:</span> Questions, conversations, exploratory chats.</li>
+                    <li><span className="font-semibold text-fg">Support:</span> Existing customer or pilot support.</li>
                   </ul>
                 </div>
               </div>

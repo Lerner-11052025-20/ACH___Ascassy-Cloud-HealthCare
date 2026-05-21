@@ -43,7 +43,7 @@ export default function AboutPage() {
             eyebrow="Our Story"
             title="From a single product idea to a cloud healthcare ecosystem."
           />
-          <div className="mt-8 flex flex-col gap-5 text-lg leading-relaxed text-ink-700">
+          <div className="mt-8 flex flex-col gap-5 text-lg leading-relaxed text-fg-muted">
             <p>
               Ascassy Cloud Healthcare Pvt Ltd was started with a simple observation: healthcare
               operations in India are still held together by paper, spreadsheets, and goodwill —
@@ -72,13 +72,13 @@ export default function AboutPage() {
               initial="hidden"
               whileInView="show"
               viewport={inViewOnce}
-              className="rounded-card bg-white p-8 shadow-card ring-1 ring-ink-100 sm:p-10"
+              className="rounded-card bg-surface p-8 shadow-card ring-1 ring-line sm:p-10"
             >
               <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-brand-50 text-brand-700">
                 <Target className="h-5 w-5" aria-hidden="true" />
               </span>
-              <h2 className="mt-4 font-display text-2xl font-bold text-navy-900 sm:text-3xl">Mission</h2>
-              <p className="mt-3 text-base leading-relaxed text-ink-700">
+              <h2 className="mt-4 font-display text-2xl font-bold text-fg sm:text-3xl">Mission</h2>
+              <p className="mt-3 text-base leading-relaxed text-fg-muted">
                 To make healthcare operations faster, cleaner, and more connected — through cloud-first
                 technology built for the realities of Indian healthcare.
               </p>
@@ -88,13 +88,13 @@ export default function AboutPage() {
               initial="hidden"
               whileInView="show"
               viewport={inViewOnce}
-              className="rounded-card bg-white p-8 shadow-card ring-1 ring-ink-100 sm:p-10"
+              className="rounded-card bg-surface p-8 shadow-card ring-1 ring-line sm:p-10"
             >
               <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-teal-50 text-teal-700">
                 <Eye className="h-5 w-5" aria-hidden="true" />
               </span>
-              <h2 className="mt-4 font-display text-2xl font-bold text-navy-900 sm:text-3xl">Vision</h2>
-              <p className="mt-3 text-base leading-relaxed text-ink-700">
+              <h2 className="mt-4 font-display text-2xl font-bold text-fg sm:text-3xl">Vision</h2>
+              <p className="mt-3 text-base leading-relaxed text-fg-muted">
                 A connected cloud healthcare ecosystem powering pharmacies, doctors, clinics, and patients
                 across India — designed for trust, accessibility, and operational clarity.
               </p>
@@ -153,7 +153,7 @@ export default function AboutPage() {
             eyebrow="Why This Matters"
             title="Why Indian healthcare needs a connected digital infrastructure."
           />
-          <div className="mt-8 flex flex-col gap-5 text-lg leading-relaxed text-ink-700">
+          <div className="mt-8 flex flex-col gap-5 text-lg leading-relaxed text-fg-muted">
             <p>
               India's healthcare ecosystem spans tens of thousands of pharmacies, hundreds of thousands
               of doctors, and a vast network of clinics and diagnostic centers. Most of these still
@@ -180,14 +180,14 @@ export default function AboutPage() {
             title="A serious team building a serious platform."
             description="Ascassy is led by a focused team of healthcare-aware product and engineering leaders. We will introduce the full team on this page as the brand matures."
           />
-          <div className="mt-10 rounded-card border border-ink-100 bg-white p-8 shadow-card">
+          <div className="mt-10 rounded-card border border-line bg-surface p-8 shadow-card">
             <div className="flex items-start gap-4">
               <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-brand-50 text-brand-700">
                 <Building2 className="h-5 w-5" aria-hidden="true" />
               </span>
               <div>
-                <h3 className="font-display text-lg font-semibold text-navy-900">Ascassy Cloud Healthcare Pvt Ltd</h3>
-                <p className="mt-1 text-sm text-ink-700">
+                <h3 className="font-display text-lg font-semibold text-fg">Ascassy Cloud Healthcare Pvt Ltd</h3>
+                <p className="mt-1 text-sm text-fg-muted">
                   Building cloud healthcare infrastructure for modern India. Full team profiles will be
                   published as part of the next website iteration.
                 </p>

@@ -28,9 +28,9 @@ export default function PrivacyPolicyPage() {
             production deployment.
           </div>
 
-          <p className="mt-6 text-sm text-ink-500">Last updated: {lastUpdated}</p>
+          <p className="mt-6 text-sm text-fg-subtle">Last updated: {lastUpdated}</p>
 
-          <div className="prose prose-slate mt-8 max-w-none text-ink-700 [&_h2]:font-display [&_h2]:text-navy-900 [&_h2]:font-bold [&_h2]:mt-10 [&_h2]:mb-3 [&_h2]:text-2xl [&_p]:leading-relaxed [&_ul]:list-disc [&_ul]:pl-6 [&_li]:my-1.5 [&_a]:font-semibold [&_a]:text-brand-700 [&_a:hover]:underline">
+          <div className="prose prose-slate mt-8 max-w-none text-fg-muted [&_h2]:font-display [&_h2]:text-fg [&_h2]:font-bold [&_h2]:mt-10 [&_h2]:mb-3 [&_h2]:text-2xl [&_p]:leading-relaxed [&_ul]:list-disc [&_ul]:pl-6 [&_li]:my-1.5 [&_a]:font-semibold [&_a]:text-brand-700 [&_a:hover]:underline">
             <h2>1. Scope</h2>
             <p>
               This Privacy Policy applies to the {brand.domain} marketing website. It does not cover any

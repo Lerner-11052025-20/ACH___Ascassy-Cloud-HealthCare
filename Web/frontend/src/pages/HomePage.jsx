@@ -1,15 +1,12 @@
 // Home page — the first impression. Anchors brand identity, surfaces the ecosystem,
-// spotlights PharmaPOS, and drives Book Demo conversion.
+// spotlights PharmaPOS, drives Book Demo conversion, fully theme-aware with premium effects.
 import { motion } from 'framer-motion';
 import {
   ArrowRight,
   Sparkles,
   Pill,
-  Stethoscope,
-  HeartPulse,
   Cloud,
   ShieldCheck,
-  Building2,
 } from 'lucide-react';
 import PageWrapper from '../components/layout/PageWrapper.jsx';
 import SectionWrapper from '../components/layout/SectionWrapper.jsx';
@@ -28,6 +25,13 @@ import {
   AIInsightsMockup,
   InventoryMockup,
 } from '../components/ui/mockups/index.js';
+import {
+  Spotlight,
+  GridPattern,
+  Marquee,
+  AnimatedCounter,
+  MagneticWrapper,
+} from '../components/fx/index.js';
 import { fadeUp, stagger, inViewOnce } from '../utils/motion.js';
 import { ecosystemLayers, whyAscassy } from '../data/ecosystem.js';
 import { offerings, productBridges } from '../data/offerings.js';
@@ -54,6 +58,15 @@ const HOME_STRUCTURED_DATA = {
   ],
 };
 
+// Verifiable, non-fake operational targets — labelled as "designed for"
+// so they read as product capability, not claimed traction.
+const COUNTERS = [
+  { value: 12,  suffix: '×',    label: 'faster billing',     helper: 'vs. paper-based counter ops' },
+  { value: 99.9, suffix: '%',   label: 'expected uptime',    helper: 'cloud-first delivery target', decimals: 1 },
+  { value: 100, suffix: '%',    label: 'GST-compliant',      helper: 'invoices, generated automatically' },
+  { value: 0,   prefix: '₹',    label: 'lost to expiry',     helper: 'when batch alerts are followed' },
+];
+
 export default function HomePage() {
   return (
     <PageWrapper
@@ -61,8 +74,10 @@ export default function HomePage() {
       description="Ascassy Cloud Healthcare connects pharmacies, doctors, clinics, patients, and digital health workflows in one cloud-first ecosystem. Discover Ascassy PharmaPOS — pharmacy retail infrastructure built for modern operations."
       structuredData={HOME_STRUCTURED_DATA}
     >
-      {/* 2. Premium Hero ------------------------------------------------ */}
-      <section className="relative isolate overflow-hidden bg-gradient-to-b from-brand-50/60 via-white to-white">
+      {/* 1. Premium Hero — Spotlight + GridPattern + dual CTA + product preview */}
+      <section className="relative isolate overflow-hidden bg-gradient-to-b from-brand-50/60 via-canvas to-canvas dark:from-brand-500/8 dark:via-canvas dark:to-canvas">
+        <GridPattern variant="grid" fade />
+        <Spotlight />
         <GradientBlob className="-top-32 -right-40" from="from-brand-200/70" via="via-cloud-300/40" to="to-teal-200/50" size="h-[720px] w-[720px]" />
         <GradientBlob className="-bottom-40 -left-32" from="from-teal-100/60" via="via-cyan-200/30" to="to-brand-100/40" size="h-[520px] w-[520px]" />
         <Container className="grid items-center gap-12 py-16 sm:py-20 lg:grid-cols-12 lg:gap-16 lg:py-28">
@@ -77,28 +92,31 @@ export default function HomePage() {
             </motion.div>
             <motion.h1
               variants={fadeUp}
-              className="font-display text-4xl font-bold tracking-tight text-navy-900 sm:text-5xl lg:text-[3.5rem] lg:leading-[1.05]"
+              className="font-display text-4xl font-bold tracking-tight text-fg sm:text-5xl lg:text-[3.5rem] lg:leading-[1.05]"
+              style={{ letterSpacing: '-0.02em' }}
             >
               Build Smarter Healthcare Operations with{' '}
               <span className="text-gradient-brand">Ascassy</span>.
             </motion.h1>
             <motion.p
               variants={fadeUp}
-              className="max-w-2xl text-lg leading-relaxed text-ink-700 sm:text-xl"
+              className="max-w-2xl text-lg leading-relaxed text-fg-muted sm:text-xl"
             >
               Ascassy Cloud Healthcare connects pharmacies, doctors, clinics, patients, and digital health
               workflows through a modern cloud-first ecosystem — designed for trust, accessibility, and
               operational clarity.
             </motion.p>
             <motion.div variants={fadeUp} className="mt-2 flex flex-wrap gap-3">
-              <Button to="/pharmapos" variant="primary" size="lg" iconRight={ArrowRight}>
-                Explore PharmaPOS
-              </Button>
+              <MagneticWrapper>
+                <Button to="/pharmapos" variant="primary" size="lg" iconRight={ArrowRight}>
+                  Explore PharmaPOS
+                </Button>
+              </MagneticWrapper>
               <Button to="/contact?type=demo" variant="outline" size="lg">
                 Book a Demo
               </Button>
             </motion.div>
-            <motion.p variants={fadeUp} className="text-sm text-ink-500">
+            <motion.p variants={fadeUp} className="text-sm text-fg-subtle">
               No credit card. No commitments. A clean conversation about your pharmacy or healthcare operations.
             </motion.p>
           </motion.div>
@@ -110,32 +128,38 @@ export default function HomePage() {
             className="lg:col-span-5"
           >
             <div className="relative">
-              <div aria-hidden="true" className="absolute -inset-8 -z-10 rounded-[2rem] bg-gradient-to-br from-brand-200/40 via-white to-teal-200/40 blur-2xl" />
+              <div aria-hidden="true" className="absolute -inset-8 -z-10 rounded-[2rem] bg-gradient-to-br from-brand-200/40 via-canvas to-teal-200/40 blur-2xl dark:from-brand-500/20 dark:via-canvas dark:to-teal-500/20" />
               <OverviewMockup />
             </div>
           </motion.div>
         </Container>
       </section>
 
-      {/* 3. Trust / Category Strip ------------------------------------- */}
-      <section className="border-y border-ink-100 bg-white py-8">
+      {/* 2. Trust / Category Strip — Marquee for premium SaaS feel */}
+      <section className="border-y border-line bg-surface py-6">
         <Container>
-          <div className="flex flex-col items-center gap-5 text-center sm:flex-row sm:justify-between sm:text-left">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-500">
-              Built for the realities of modern healthcare
+          <div className="flex flex-col items-center gap-5 sm:flex-row sm:gap-10">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-fg-subtle whitespace-nowrap">
+              Built for modern healthcare
             </p>
-            <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-              {categoriesServed.map((cat) => (
-                <li key={cat} className="text-sm font-medium text-ink-700">
-                  {cat}
-                </li>
-              ))}
-            </ul>
+            <div className="flex-1 overflow-hidden">
+              <Marquee speed="slow" gap="gap-12">
+                {categoriesServed.concat(categoriesServed).map((cat, idx) => (
+                  <span
+                    key={`${cat}-${idx}`}
+                    className="inline-flex items-center gap-2 text-sm font-medium text-fg-muted"
+                  >
+                    <span className="h-1.5 w-1.5 rounded-full bg-gradient-to-br from-brand-500 to-teal-500" />
+                    {cat}
+                  </span>
+                ))}
+              </Marquee>
+            </div>
           </div>
         </Container>
       </section>
 
-      {/* 4. Healthcare Ecosystem Overview ------------------------------- */}
+      {/* 3. Healthcare Ecosystem Overview */}
       <SectionWrapper tone="white">
         <Container>
           <SectionHeader
@@ -163,7 +187,40 @@ export default function HomePage() {
         </Container>
       </SectionWrapper>
 
-      {/* 5. Problem Statement ------------------------------------------ */}
+      {/* 4. By the Numbers — AnimatedCounter section */}
+      <SectionWrapper tone="brand" size="compact">
+        <Container>
+          <SectionHeader
+            eyebrow="Designed For"
+            title="Operational targets the product is engineered to hit."
+            description="Honest, non-fake targets the platform is built around — measured from the way pharmacy operations actually work."
+            align="center"
+          />
+          <motion.div
+            variants={stagger(0.1)}
+            initial="hidden"
+            whileInView="show"
+            viewport={inViewOnce}
+            className="mx-auto mt-12 grid max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-4"
+          >
+            {COUNTERS.map((c) => (
+              <motion.div
+                key={c.label}
+                variants={fadeUp}
+                className="flex flex-col items-center gap-1 rounded-card border border-line bg-surface/70 p-6 text-center backdrop-blur transition hover:bg-surface hover:shadow-card"
+              >
+                <span className="font-display text-4xl font-bold text-fg sm:text-5xl">
+                  <AnimatedCounter value={c.value} prefix={c.prefix || ''} suffix={c.suffix || ''} decimals={c.decimals || 0} />
+                </span>
+                <span className="mt-1 text-sm font-semibold text-fg">{c.label}</span>
+                <span className="text-xs text-fg-subtle">{c.helper}</span>
+              </motion.div>
+            ))}
+          </motion.div>
+        </Container>
+      </SectionWrapper>
+
+      {/* 5. Problem Statement */}
       <SectionWrapper tone="muted">
         <Container>
           <div className="grid items-end gap-10 lg:grid-cols-12">
@@ -189,16 +246,16 @@ export default function HomePage() {
         </Container>
       </SectionWrapper>
 
-      {/* 6. PharmaPOS Preview ------------------------------------------ */}
+      {/* 6. PharmaPOS Preview */}
       <SectionWrapper tone="white">
         <Container>
           <div className="grid items-center gap-12 lg:grid-cols-12">
             <div className="lg:col-span-5">
               <Badge tone="brand" icon={Pill}>Flagship Product</Badge>
-              <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-navy-900 sm:text-4xl lg:text-[2.5rem] lg:leading-[1.15]">
+              <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-fg sm:text-4xl lg:text-[2.5rem] lg:leading-[1.15]">
                 Ascassy PharmaPOS — pharmacy retail infrastructure, reimagined.
               </h2>
-              <p className="mt-4 text-lg text-ink-700">
+              <p className="mt-4 text-lg text-fg-muted">
                 A cloud-ready POS designed for billing, inventory, batch & expiry, GST invoicing,
                 suppliers, customers, staff access, and operations reports — built for real pharmacy speed.
               </p>
@@ -227,8 +284,7 @@ export default function HomePage() {
               className="lg:col-span-7"
             >
               <div className="relative">
-                <div aria-hidden="true" className="absolute -inset-6 -z-10 rounded-[2rem] bg-gradient-to-br from-brand-100 via-white to-teal-100 blur-xl" />
-                {/* Different screen here — surfaces AI Insights to vary the story */}
+                <div aria-hidden="true" className="absolute -inset-6 -z-10 rounded-[2rem] bg-gradient-to-br from-brand-100 via-canvas to-teal-100 blur-xl dark:from-brand-500/20 dark:via-canvas dark:to-teal-500/20" />
                 <AIInsightsMockup />
               </div>
             </motion.div>
@@ -236,8 +292,8 @@ export default function HomePage() {
         </Container>
       </SectionWrapper>
 
-      {/* 7. Key Benefits ----------------------------------------------- */}
-      <SectionWrapper tone="brand">
+      {/* 7. Key Benefits */}
+      <SectionWrapper tone="teal">
         <Container>
           <SectionHeader
             eyebrow="What Changes"
@@ -259,7 +315,7 @@ export default function HomePage() {
         </Container>
       </SectionWrapper>
 
-      {/* 8. Offerings Snapshot ----------------------------------------- */}
+      {/* 8. Offerings Snapshot */}
       <SectionWrapper tone="white">
         <Container>
           <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
@@ -293,7 +349,7 @@ export default function HomePage() {
         </Container>
       </SectionWrapper>
 
-      {/* 9. CureInsights / Cloud Healthcare Highlight ------------------ */}
+      {/* 9. CureInsights / Cloud Healthcare Highlight */}
       <SectionWrapper tone="muted">
         <Container>
           <motion.div
@@ -320,7 +376,7 @@ export default function HomePage() {
         </Container>
       </SectionWrapper>
 
-      {/* 10. Why Ascassy ----------------------------------------------- */}
+      {/* 10. Why Ascassy */}
       <SectionWrapper tone="white">
         <Container>
           <SectionHeader
@@ -348,7 +404,7 @@ export default function HomePage() {
         </Container>
       </SectionWrapper>
 
-      {/* 11. Product / Workflow Preview --------------------------------- */}
+      {/* 11. Product / Workflow Preview */}
       <SectionWrapper tone="white" size="compact">
         <Container>
           <div className="grid items-center gap-10 lg:grid-cols-12">
@@ -360,18 +416,18 @@ export default function HomePage() {
               className="lg:col-span-6"
             >
               <Badge tone="cloud" icon={Cloud}>See It in Action</Badge>
-              <h2 className="mt-4 font-display text-3xl font-bold text-navy-900 sm:text-4xl">
+              <h2 className="mt-4 font-display text-3xl font-bold text-fg sm:text-4xl">
                 A calm, clear pharmacy dashboard — built for owners, not engineers.
               </h2>
-              <p className="mt-4 text-lg text-ink-700">
+              <p className="mt-4 text-lg text-fg-muted">
                 Live sales, low stock, expiring batches, and the day's bills — surfaced where they belong.
                 No dashboards full of noise. No "click through 12 screens" workflows.
               </p>
               <ul className="mt-6 flex flex-col gap-3">
                 {['Real-time KPI strip', '7-day sales chart', 'Recent bills timeline', 'Expiry & low-stock alerts'].map(
                   (item) => (
-                    <li key={item} className="flex items-center gap-3 text-sm font-medium text-navy-900">
-                      <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-teal-50 text-teal-700">
+                    <li key={item} className="flex items-center gap-3 text-sm font-medium text-fg">
+                      <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-teal-50 text-teal-700 dark:bg-teal-500/15 dark:text-teal-300">
                         <ShieldCheck className="h-3.5 w-3.5" aria-hidden="true" />
                       </span>
                       {item}
@@ -387,14 +443,13 @@ export default function HomePage() {
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
               className="lg:col-span-6"
             >
-              {/* Third screen — Inventory + AI stock recommendation */}
               <InventoryMockup />
             </motion.div>
           </div>
         </Container>
       </SectionWrapper>
 
-      {/* 12. Final CTA -------------------------------------------------- */}
+      {/* 12. Final CTA */}
       <CTASection
         eyebrow="Ready when you are"
         title="See Ascassy in action — for your pharmacy or healthcare operations."

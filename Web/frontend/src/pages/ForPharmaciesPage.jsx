@@ -67,7 +67,7 @@ export default function ForPharmaciesPage() {
             viewport={inViewOnce}
             className="mx-auto mt-12 grid max-w-5xl gap-4"
           >
-            <div className="grid grid-cols-2 gap-4 text-xs font-semibold uppercase tracking-[0.18em] text-ink-500">
+            <div className="grid grid-cols-2 gap-4 text-xs font-semibold uppercase tracking-[0.18em] text-fg-subtle">
               <span>Before PharmaPOS</span>
               <span>After PharmaPOS</span>
             </div>
@@ -75,15 +75,15 @@ export default function ForPharmaciesPage() {
               <motion.div
                 key={idx}
                 variants={fadeUp}
-                className="grid grid-cols-1 gap-3 rounded-card bg-white p-5 shadow-card ring-1 ring-ink-100 sm:grid-cols-2"
+                className="grid grid-cols-1 gap-3 rounded-card bg-surface p-5 shadow-card ring-1 ring-line sm:grid-cols-2"
               >
-                <div className="flex items-start gap-3 text-ink-700">
+                <div className="flex items-start gap-3 text-fg-muted">
                   <span className="mt-1 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-rose-50 text-rose-600">
                     <ArrowDown className="h-3.5 w-3.5" aria-hidden="true" />
                   </span>
                   <span>{row.before}</span>
                 </div>
-                <div className="flex items-start gap-3 font-medium text-navy-900">
+                <div className="flex items-start gap-3 font-medium text-fg">
                   <span className="mt-1 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-teal-50 text-teal-700">
                     <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
                   </span>
@@ -141,13 +141,13 @@ export default function ForPharmaciesPage() {
               <motion.li
                 key={s.step}
                 variants={fadeUp}
-                className="rounded-card bg-white p-6 shadow-card ring-1 ring-ink-100"
+                className="rounded-card bg-surface p-6 shadow-card ring-1 ring-line"
               >
                 <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-brand-600 text-sm font-bold text-white">
                   {s.step}
                 </span>
-                <h3 className="mt-4 font-display text-base font-semibold text-navy-900">{s.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-ink-700">{s.text}</p>
+                <h3 className="mt-4 font-display text-base font-semibold text-fg">{s.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-fg-muted">{s.text}</p>
               </motion.li>
             ))}
           </motion.ol>

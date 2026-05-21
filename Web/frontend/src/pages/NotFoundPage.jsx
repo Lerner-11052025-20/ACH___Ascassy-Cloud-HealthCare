@@ -14,10 +14,10 @@ export default function NotFoundPage() {
           <span className="inline-flex items-center justify-center rounded-pill bg-brand-50 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-brand-700">
             404
           </span>
-          <h1 className="mt-5 font-display text-4xl font-bold tracking-tight text-navy-900 sm:text-5xl">
+          <h1 className="mt-5 font-display text-4xl font-bold tracking-tight text-fg sm:text-5xl">
             We couldn’t find that page.
           </h1>
-          <p className="mx-auto mt-4 max-w-xl text-base text-ink-700 sm:text-lg">
+          <p className="mx-auto mt-4 max-w-xl text-base text-fg-muted sm:text-lg">
             The link may be outdated or the page may have moved. Let’s get you back to the Ascassy ecosystem.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">

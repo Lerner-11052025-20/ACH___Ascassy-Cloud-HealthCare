@@ -1,4 +1,5 @@
 // Footer — multi-column trust + navigation layer, mobile-collapsible.
+// Always-dark in light mode (premium closing band) and elevated surface in dark.
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import Container from '../common/Container.jsx';
@@ -9,10 +10,11 @@ import { brand, footerColumns, contactDetails, primaryCTA } from '../../data/sit
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="relative mt-12 overflow-hidden bg-navy-900 text-ink-200">
-      {/* subtle top gradient accent */}
+    <footer className="relative mt-12 overflow-hidden bg-navy-950 text-ink-200 dark:bg-surface-elev">
       <div aria-hidden="true" className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-500/40 to-transparent" />
-      <Container className="py-16 lg:py-20">
+      <div aria-hidden="true" className="pointer-events-none absolute -top-40 left-1/3 h-[480px] w-[480px] -translate-x-1/2 rounded-full bg-brand-600/15 blur-3xl" />
+      <div aria-hidden="true" className="pointer-events-none absolute -bottom-32 right-1/4 h-[420px] w-[420px] rounded-full bg-teal-500/12 blur-3xl" />
+      <Container className="relative py-16 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-12">
           {/* Brand + tagline + CTA */}
           <div className="lg:col-span-4">

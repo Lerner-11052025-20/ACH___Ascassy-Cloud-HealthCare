@@ -110,8 +110,8 @@ export default function PharmaPOSPreview({
                 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2',
                 isCompact ? 'px-3 py-1.5 text-xs' : 'px-4 py-2 text-sm',
                 isActive
-                  ? 'bg-brand-600 text-white shadow-soft'
-                  : 'bg-white text-ink-700 ring-1 ring-ink-200 hover:bg-ink-50 hover:text-navy-900',
+                  ? 'bg-brand-600 text-white shadow-glow-brand'
+                  : 'bg-surface text-fg-muted ring-1 ring-line-strong hover:bg-surface-muted hover:text-fg',
               )}
             >
               <Icon className={isCompact ? 'h-3.5 w-3.5' : 'h-4 w-4'} aria-hidden="true" />
@@ -126,7 +126,7 @@ export default function PharmaPOSPreview({
         !hasInteracted ? (
           <p
             className={cn(
-              'flex items-center gap-1.5 font-medium text-ink-500',
+              'flex items-center gap-1.5 font-medium text-fg-subtle',
               isCompact ? 'text-[11px]' : 'text-xs',
             )}
           >
@@ -134,7 +134,7 @@ export default function PharmaPOSPreview({
             Click any tab — every view is a real PharmaPOS screen.
           </p>
         ) : (
-          <p className={cn('font-medium text-ink-500', isCompact ? 'text-[11px]' : 'text-xs')}>{tab.blurb}</p>
+          <p className={cn('font-medium text-fg-subtle', isCompact ? 'text-[11px]' : 'text-xs')}>{tab.blurb}</p>
         )
       ) : null}
 
@@ -148,7 +148,8 @@ export default function PharmaPOSPreview({
         <div
           aria-hidden="true"
           className={cn(
-            '-z-10 rounded-[2rem] bg-gradient-to-br from-brand-100 via-white to-teal-100 blur-xl',
+            '-z-10 rounded-[2rem] bg-gradient-to-br from-brand-100 via-canvas to-teal-100 blur-xl',
+            'dark:from-brand-500/20 dark:via-canvas dark:to-teal-500/20',
             isCompact ? 'absolute -inset-4' : 'absolute -inset-6',
           )}
         />

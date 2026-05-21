@@ -1,13 +1,17 @@
 /*
   Ascassy Cloud Healthcare — Global Styles
-  Tailwind CSS v4.3 with @theme tokens locked from BEGiN Phase 3 design system.
+  Tailwind CSS v4.3 with dark + light theming, premium typography,
+  motion utilities, gradient meshes, grid/dot backgrounds, marquee.
 */
 
 @import "tailwindcss";
 
+/* Tailwind v4 dark variant — driven by `.dark` class on <html>. */
+@variant dark (&:where(.dark, .dark *));
+
 @theme {
-  /* === Brand Blue (Medical / Cloud) — primary === */
-  --color-brand-50: #EFF6FF;
+  /* === Brand colors — constant across themes === */
+  --color-brand-50:  #EFF6FF;
   --color-brand-100: #DBEAFE;
   --color-brand-200: #BFDBFE;
   --color-brand-300: #93C5FD;
@@ -18,53 +22,116 @@
   --color-brand-800: #1E40AF;
   --color-brand-900: #1E3A8A;
 
-  /* === Teal (Healthcare) — secondary === */
-  --color-teal-50: #F0FDFA;
+  --color-teal-50:  #F0FDFA;
   --color-teal-100: #CCFBF1;
   --color-teal-400: #2DD4BF;
   --color-teal-500: #14B8A6;
   --color-teal-600: #0D9488;
   --color-teal-700: #0F766E;
 
-  /* === Navy (Premium contrast) === */
   --color-navy-700: #334155;
   --color-navy-800: #1E293B;
   --color-navy-900: #0F172A;
   --color-navy-950: #020617;
 
-  /* === Cloud Blue / Cyan (Atmospheric accents) === */
   --color-cloud-300: #7DD3FC;
   --color-cloud-400: #38BDF8;
   --color-cloud-500: #0EA5E9;
+
   --color-cyan-200: #A5F3FC;
   --color-cyan-300: #67E8F9;
 
-  /* === Neutrals === */
+  --color-violet-50:  #F5F3FF;
+  --color-violet-100: #EDE9FE;
+  --color-violet-500: #8B5CF6;
+  --color-violet-600: #7C3AED;
+  --color-violet-700: #6D28D9;
+
+  /* Neutrals — used as base for both themes */
   --color-ink-900: #0F172A;
   --color-ink-700: #334155;
   --color-ink-500: #64748B;
   --color-ink-300: #CBD5E1;
   --color-ink-200: #E2E8F0;
   --color-ink-100: #F1F5F9;
-  --color-ink-50: #F8FAFC;
-  --color-canvas: #FFFFFF;
+  --color-ink-50:  #F8FAFC;
+
+  /* === Semantic tokens — swap by theme ===
+     These are wired to runtime CSS variables (set below) so a class like
+     `bg-canvas` or `text-fg` automatically follows the active theme. */
+  --color-canvas:         var(--app-canvas);
+  --color-surface:        var(--app-surface);
+  --color-surface-muted:  var(--app-surface-muted);
+  --color-surface-elev:   var(--app-surface-elev);
+  --color-fg:             var(--app-fg);
+  --color-fg-muted:       var(--app-fg-muted);
+  --color-fg-subtle:      var(--app-fg-subtle);
+  --color-line:           var(--app-line);
+  --color-line-strong:    var(--app-line-strong);
 
   /* === Typography === */
-  --font-sans: "Inter", "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-sans:    "Inter", "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-display: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+  --font-mono:    "JetBrains Mono", "SF Mono", ui-monospace, "Cascadia Mono", Menlo, monospace;
 
   /* === Radius === */
   --radius-button: 0.75rem;
-  --radius-card: 1rem;
-  --radius-input: 0.625rem;
-  --radius-pill: 9999px;
+  --radius-card:   1rem;
+  --radius-input:  0.625rem;
+  --radius-pill:   9999px;
 
-  /* === Shadows (soft, premium) === */
-  --shadow-soft: 0 1px 2px rgba(15, 23, 42, 0.04), 0 4px 12px rgba(15, 23, 42, 0.05);
-  --shadow-card: 0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px rgba(15, 23, 42, 0.06);
-  --shadow-lift: 0 12px 32px rgba(15, 23, 42, 0.08);
-  --shadow-floating: 0 24px 60px rgba(15, 23, 42, 0.14);
-  --shadow-glow-brand: 0 12px 40px rgba(37, 99, 235, 0.25);
+  /* === Shadows — light theme === */
+  --shadow-soft:        0 1px 2px rgba(15, 23, 42, 0.04), 0 4px 12px rgba(15, 23, 42, 0.05);
+  --shadow-card:        0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px rgba(15, 23, 42, 0.06);
+  --shadow-lift:        0 12px 32px rgba(15, 23, 42, 0.08);
+  --shadow-floating:    0 24px 60px rgba(15, 23, 42, 0.14);
+  --shadow-glow-brand:  0 12px 40px rgba(37, 99, 235, 0.25);
+  --shadow-glow-teal:   0 12px 40px rgba(20, 184, 166, 0.25);
+
+  /* === Animations === */
+  --animate-marquee:        marquee 30s linear infinite;
+  --animate-marquee-slow:   marquee 50s linear infinite;
+  --animate-float:          float 7s ease-in-out infinite;
+  --animate-pulse-glow:     pulse-glow 4s ease-in-out infinite;
+  --animate-shimmer:        shimmer 2.5s linear infinite;
+  --animate-gradient-shift: gradient-shift 12s ease infinite;
+}
+
+/* === Runtime theme tokens === */
+:root,
+:root[data-theme="light"] {
+  color-scheme: light;
+  --app-canvas:        #FFFFFF;
+  --app-surface:       #FFFFFF;
+  --app-surface-muted: #F8FAFC;
+  --app-surface-elev:  #FFFFFF;
+  --app-fg:            #0F172A;
+  --app-fg-muted:      #334155;
+  --app-fg-subtle:     #64748B;
+  --app-line:          #F1F5F9;
+  --app-line-strong:   #E2E8F0;
+}
+
+.dark,
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --app-canvas:        #050816;
+  --app-surface:       #0B1220;
+  --app-surface-muted: #0E1A2E;
+  --app-surface-elev:  #111B30;
+  --app-fg:            #F1F5F9;
+  --app-fg-muted:      #94A3B8;
+  --app-fg-subtle:     #64748B;
+  --app-line:          rgba(255, 255, 255, 0.07);
+  --app-line-strong:   rgba(255, 255, 255, 0.12);
+
+  /* Stronger shadows on dark backgrounds. */
+  --shadow-soft:       0 1px 2px rgba(0, 0, 0, 0.4), 0 4px 12px rgba(0, 0, 0, 0.35);
+  --shadow-card:       0 1px 2px rgba(0, 0, 0, 0.4), 0 12px 32px rgba(0, 0, 0, 0.45);
+  --shadow-lift:       0 16px 40px rgba(0, 0, 0, 0.55);
+  --shadow-floating:   0 28px 80px rgba(0, 0, 0, 0.6);
+  --shadow-glow-brand: 0 12px 40px rgba(59, 130, 246, 0.45);
+  --shadow-glow-teal:  0 12px 40px rgba(45, 212, 191, 0.45);
 }
 
 /* === Base reset / global rhythm === */
@@ -77,11 +144,12 @@ html {
 
 body {
   font-family: var(--font-sans);
-  color: var(--color-ink-900);
-  background-color: var(--color-canvas);
+  color: var(--app-fg);
+  background-color: var(--app-canvas);
   font-size: 1rem;
   line-height: 1.6;
   min-height: 100dvh;
+  transition: background-color 250ms ease, color 250ms ease;
 }
 
 ::selection {
@@ -89,20 +157,20 @@ body {
   color: #ffffff;
 }
 
-/* Custom scrollbar — subtle premium */
+/* Scrollbar — themed */
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--color-ink-50);
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-ink-300);
+  background: color-mix(in srgb, var(--app-fg) 18%, transparent);
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-ink-500);
+  background: color-mix(in srgb, var(--app-fg) 32%, transparent);
 }
 
 /* Focus ring (accessibility) */
@@ -124,10 +192,120 @@ body {
   }
 }
 
-/* Utility — atmospheric gradient text */
+/* === Premium utilities === */
+
+/* Atmospheric gradient text */
 .text-gradient-brand {
-  background: linear-gradient(120deg, var(--color-brand-600), var(--color-teal-500));
+  background: linear-gradient(120deg, var(--color-brand-500), var(--color-cloud-400) 50%, var(--color-teal-500));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+.text-gradient-aurora {
+  background: linear-gradient(120deg, #60A5FA, #67E8F9 40%, #2DD4BF 70%, #A78BFA);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Animated gradient background — used on CTA / hero accents */
+.bg-mesh-aurora {
+  background:
+    radial-gradient(60% 60% at 20% 20%, color-mix(in oklab, var(--color-brand-500) 35%, transparent), transparent 60%),
+    radial-gradient(50% 50% at 80% 30%, color-mix(in oklab, var(--color-teal-500) 30%, transparent), transparent 60%),
+    radial-gradient(50% 50% at 50% 90%, color-mix(in oklab, var(--color-violet-500) 28%, transparent), transparent 60%),
+    radial-gradient(40% 40% at 90% 80%, color-mix(in oklab, var(--color-cloud-500) 30%, transparent), transparent 60%);
+  background-size: 200% 200%;
+  animation: var(--animate-gradient-shift);
+}
+
+/* Dot pattern background — subtle, theme-aware */
+.bg-pattern-dot {
+  background-image: radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--app-fg) 8%, transparent) 1px, transparent 0);
+  background-size: 22px 22px;
+}
+
+/* Grid pattern background — subtle, theme-aware, fades at edges via mask */
+.bg-pattern-grid {
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--app-fg) 6%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--app-fg) 6%, transparent) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+.mask-fade-edges {
+  mask-image: radial-gradient(ellipse at center, black 50%, transparent 90%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 50%, transparent 90%);
+}
+
+/* Glass card — used by navbar, dropdowns, command palettes */
+.glass-card {
+  background: color-mix(in srgb, var(--app-surface) 78%, transparent);
+  backdrop-filter: saturate(180%) blur(18px);
+  -webkit-backdrop-filter: saturate(180%) blur(18px);
+  border: 1px solid var(--app-line-strong);
+}
+
+/* Shimmer on hover — used on chip buttons */
+.shimmer-on-hover {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer-on-hover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, 0.35) 50%, transparent 70%);
+  transform: translateX(-100%);
+  pointer-events: none;
+}
+.shimmer-on-hover:hover::after {
+  animation: var(--animate-shimmer);
+}
+
+/* Tabular numerals — used in KPIs, billing rows */
+.nums-tabular {
+  font-variant-numeric: tabular-nums lining-nums;
+  letter-spacing: -0.01em;
+}
+
+/* === Keyframes === */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%      { transform: translateY(-12px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.5; }
+  50%      { opacity: 0.9; }
+}
+
+@keyframes shimmer {
+  to { transform: translateX(100%); }
+}
+
+@keyframes gradient-shift {
+  0%   { background-position: 0% 0%; }
+  50%  { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+/* === Marquee container === */
+.marquee {
+  display: flex;
+  width: max-content;
+  animation: var(--animate-marquee);
+}
+.marquee-slow {
+  animation: var(--animate-marquee-slow);
+}
+.marquee-mask {
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }

@@ -45,14 +45,14 @@ export default function PharmaPOSPage() {
             </motion.div>
             <motion.h1
               variants={fadeUp}
-              className="font-display text-4xl font-bold tracking-tight text-navy-900 sm:text-5xl lg:text-[3.25rem] lg:leading-[1.08]"
+              className="font-display text-4xl font-bold tracking-tight text-fg sm:text-5xl lg:text-[3.25rem] lg:leading-[1.08]"
             >
               A Modern POS for{' '}
               <span className="text-gradient-brand">Smarter Pharmacy Operations</span>.
             </motion.h1>
             <motion.p
               variants={fadeUp}
-              className="max-w-2xl text-lg leading-relaxed text-ink-700 sm:text-xl"
+              className="max-w-2xl text-lg leading-relaxed text-fg-muted sm:text-xl"
             >
               Ascassy PharmaPOS is designed to help pharmaceutical retailers manage billing, inventory,
               batches, expiry, GST invoices, suppliers, customers, staff access, and business reports —
@@ -64,7 +64,7 @@ export default function PharmaPOSPage() {
               </Button>
               <Button to="#features" variant="outline" size="lg">View Features</Button>
             </motion.div>
-            <motion.p variants={fadeUp} className="text-sm text-ink-500">
+            <motion.p variants={fadeUp} className="text-sm text-fg-subtle">
               Built cloud-first. Ready for single-shop and multi-store pharmacy operations.
             </motion.p>
           </motion.div>
@@ -112,10 +112,10 @@ export default function PharmaPOSPage() {
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
               <Badge tone="teal" icon={Cloud}>What PharmaPOS Is</Badge>
-              <h2 className="mt-4 font-display text-3xl font-bold text-navy-900 sm:text-4xl">
+              <h2 className="mt-4 font-display text-3xl font-bold text-fg sm:text-4xl">
                 Pharmacy operations infrastructure, not just billing software.
               </h2>
-              <p className="mt-4 text-lg text-ink-700">
+              <p className="mt-4 text-lg text-fg-muted">
                 PharmaPOS is the pharmacy retail layer of the Ascassy Cloud Healthcare ecosystem.
                 Every feature is designed around a real pharmacy decision — at the counter, in the back
                 office, or on the owner's phone.
@@ -125,7 +125,7 @@ export default function PharmaPOSPage() {
                 <Button to="/for-pharmacies" variant="ghost">For Pharmacy Owners</Button>
               </div>
             </div>
-            <ul className="grid gap-3 rounded-card border border-ink-100 bg-ink-50/60 p-6 sm:p-8">
+            <ul className="grid gap-3 rounded-card border border-line bg-surface-muted/60 p-6 sm:p-8">
               {[
                 'Designed for real pharmacy speed at the counter',
                 'Built cloud-first for single-shop and multi-store growth',
@@ -133,7 +133,7 @@ export default function PharmaPOSPage() {
                 'Real-time inventory, batch, and expiry visibility',
                 'Reports designed for pharmacy owners, not analysts',
               ].map((item) => (
-                <li key={item} className="flex items-start gap-3 text-base text-navy-900">
+                <li key={item} className="flex items-start gap-3 text-base text-fg">
                   <span className="mt-1 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-teal-50 text-teal-700">
                     <ShieldCheck className="h-3.5 w-3.5" aria-hidden="true" />
                   </span>
@@ -180,14 +180,14 @@ export default function PharmaPOSPage() {
               className="lg:col-span-4 lg:sticky lg:top-28"
             >
               <Badge tone="cloud" icon={Sparkles}>Live Product Preview</Badge>
-              <h2 className="mt-4 font-display text-3xl font-bold text-navy-900 sm:text-4xl">
+              <h2 className="mt-4 font-display text-3xl font-bold text-fg sm:text-4xl">
                 Click through every PharmaPOS screen.
               </h2>
-              <p className="mt-4 text-lg text-ink-700">
+              <p className="mt-4 text-lg text-fg-muted">
                 Overview, billing, inventory, expiry, AI insights, prescriptions — every tab is a real
                 workflow inside PharmaPOS.
               </p>
-              <p className="mt-3 text-sm text-ink-500">
+              <p className="mt-3 text-sm text-fg-subtle">
                 Visuals are illustrative; final product UI is refined ahead of launch.
               </p>
             </motion.div>
@@ -225,10 +225,10 @@ export default function PharmaPOSPage() {
               className="lg:col-span-5"
             >
               <Badge tone="brand" icon={Sparkles}>Expiry Intelligence</Badge>
-              <h2 className="mt-4 font-display text-3xl font-bold text-navy-900 sm:text-4xl">
+              <h2 className="mt-4 font-display text-3xl font-bold text-fg sm:text-4xl">
                 Stop losing money to expiry — quietly, every month.
               </h2>
-              <p className="mt-4 text-lg text-ink-700">
+              <p className="mt-4 text-lg text-fg-muted">
                 Batch-level visibility, expiring-soon alerts, value-at-risk tracking, and a one-click
                 disposal report when something does slip through.
               </p>
@@ -271,7 +271,7 @@ export default function PharmaPOSPage() {
           <div className="mt-10">
             <FAQAccordion items={pharmaposFAQ} />
           </div>
-          <p className="mt-6 text-sm text-ink-500">
+          <p className="mt-6 text-sm text-fg-subtle">
             Have a different question?{' '}
             <a href="/contact" className="font-semibold text-brand-700 hover:underline">
               Contact the Ascassy team

@@ -1,12 +1,15 @@
-// Ascassy logo — SVG mark + wordmark. Inline so it inherits text color (variant: light/dark).
+// Ascassy logo — SVG mark + wordmark. Theme-aware via `text-fg` on the wordmark.
 import { Link } from 'react-router-dom';
 import { cn } from '../../utils/cn.js';
 
-export default function Logo({ variant = 'dark', compact = false, className = '' }) {
-  const wordmarkColor = variant === 'light' ? 'text-white' : 'text-navy-900';
+export default function Logo({ variant = 'auto', compact = false, className = '' }) {
+  // `auto` uses semantic text-fg so it adapts to the theme; `light` forces white
+  // (used inside the always-dark footer when we want a guaranteed-white wordmark).
+  const wordmarkColor = variant === 'light' ? 'text-white' : 'text-fg';
+  const subColor = variant === 'light' ? 'text-white/60' : 'text-fg-subtle';
   return (
     <Link to="/" aria-label="Ascassy — Home" className={cn('group inline-flex items-center gap-3', className)}>
-      <span className="relative inline-flex h-10 w-10 items-center justify-center overflow-hidden rounded-xl shadow-soft transition group-hover:shadow-lift">
+      <span className="relative inline-flex h-10 w-10 items-center justify-center overflow-hidden rounded-xl shadow-soft transition group-hover:shadow-glow-brand">
         <svg viewBox="0 0 64 64" className="h-10 w-10" aria-hidden="true">
           <defs>
             <linearGradient id="logoGrad" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
@@ -25,7 +28,7 @@ export default function Logo({ variant = 'dark', compact = false, className = ''
       {!compact ? (
         <span className={cn('flex flex-col leading-none', wordmarkColor)}>
           <span className="font-display text-lg font-bold tracking-tight">Ascassy</span>
-          <span className="text-[10px] font-medium uppercase tracking-[0.18em] text-ink-500">
+          <span className={cn('text-[10px] font-medium uppercase tracking-[0.18em]', subColor)}>
             Cloud Healthcare
           </span>
         </span>

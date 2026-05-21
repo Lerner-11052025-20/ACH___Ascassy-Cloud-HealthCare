@@ -1,5 +1,5 @@
 // Soft atmospheric gradient blob — used behind heros and key sections.
-// Purely decorative; aria-hidden so screen readers skip it.
+// Theme-aware via opacity tuning. Purely decorative; aria-hidden so screen readers skip it.
 import { cn } from '../../utils/cn.js';
 
 export default function GradientBlob({
@@ -13,7 +13,7 @@ export default function GradientBlob({
     <div
       aria-hidden="true"
       className={cn(
-        'pointer-events-none absolute -z-10 rounded-full bg-gradient-to-br blur-3xl opacity-60',
+        'pointer-events-none absolute -z-10 rounded-full bg-gradient-to-br blur-3xl opacity-60 dark:opacity-40',
         from,
         via,
         to,
