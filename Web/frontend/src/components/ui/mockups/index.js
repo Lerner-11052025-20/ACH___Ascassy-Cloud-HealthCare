@@ -1,0 +1,8 @@
+// Barrel exports for the PharmaPOS mockup family.
+export { default as MockupShell } from './MockupShell.jsx';
+export { default as OverviewMockup } from './OverviewMockup.jsx';
+export { default as AIInsightsMockup } from './AIInsightsMockup.jsx';
+export { default as ExpiryMockup } from './ExpiryMockup.jsx';
+export { default as InventoryMockup } from './InventoryMockup.jsx';
+export { default as PrescriptionsMockup } from './PrescriptionsMockup.jsx';
+export { default as BillingMockup } from './BillingMockup.jsx';

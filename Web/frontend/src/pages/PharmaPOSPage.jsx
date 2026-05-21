@@ -14,7 +14,8 @@ import FeatureCard from '../components/ui/FeatureCard.jsx';
 import ProblemCard from '../components/ui/ProblemCard.jsx';
 import BenefitCard from '../components/ui/BenefitCard.jsx';
 import FAQAccordion from '../components/ui/FAQAccordion.jsx';
-import DashboardMockup from '../components/ui/DashboardMockup.jsx';
+import { OverviewMockup, ExpiryMockup } from '../components/ui/mockups/index.js';
+import PharmaPOSPreview from '../components/ui/PharmaPOSPreview.jsx';
 import { fadeUp, stagger, inViewOnce } from '../utils/motion.js';
 import {
   pharmaposFeatures,
@@ -76,7 +77,7 @@ export default function PharmaPOSPage() {
           >
             <div className="relative">
               <div aria-hidden="true" className="absolute -inset-8 -z-10 rounded-[2rem] bg-gradient-to-br from-brand-200/40 via-white to-teal-200/40 blur-2xl" />
-              <DashboardMockup />
+              <OverviewMockup />
             </div>
           </motion.div>
         </Container>
@@ -166,27 +167,27 @@ export default function PharmaPOSPage() {
         </Container>
       </SectionWrapper>
 
-      {/* 14. Dashboard Preview ------------------------------------------ */}
+      {/* 14. Interactive Product Preview -------------------------------- */}
       <SectionWrapper tone="white">
         <Container>
-          <div className="grid items-center gap-10 lg:grid-cols-12">
+          <div className="grid items-start gap-10 lg:grid-cols-12">
             <motion.div
               initial={{ opacity: 0, x: -24 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={inViewOnce}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="lg:col-span-5"
+              className="lg:col-span-4 lg:sticky lg:top-28"
             >
-              <Badge tone="cloud" icon={Sparkles}>Dashboard Preview</Badge>
+              <Badge tone="cloud" icon={Sparkles}>Live Product Preview</Badge>
               <h2 className="mt-4 font-display text-3xl font-bold text-navy-900 sm:text-4xl">
-                One dashboard for your entire pharmacy.
+                Click through every PharmaPOS screen.
               </h2>
               <p className="mt-4 text-lg text-ink-700">
-                A clear view of how your shop is performing today — sales, low stock, expiring batches,
-                and the day's bills — surfaced where they belong.
+                Overview, billing, inventory, expiry, AI insights, prescriptions — every tab is a real
+                workflow inside PharmaPOS.
               </p>
               <p className="mt-3 text-sm text-ink-500">
-                Visual illustrative only. Final product UI will be refined ahead of launch.
+                Visuals are illustrative; final product UI is refined ahead of launch.
               </p>
             </motion.div>
             <motion.div
@@ -194,9 +195,42 @@ export default function PharmaPOSPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={inViewOnce}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              className="lg:col-span-8"
+            >
+              <PharmaPOSPreview />
+            </motion.div>
+          </div>
+        </Container>
+      </SectionWrapper>
+
+      {/* 14b. Expiry spotlight — second screen highlight ---------------- */}
+      <SectionWrapper tone="muted" size="compact">
+        <Container>
+          <div className="grid items-center gap-10 lg:grid-cols-12">
+            <motion.div
+              initial={{ opacity: 0, x: -24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={inViewOnce}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
               className="lg:col-span-7"
             >
-              <DashboardMockup />
+              <ExpiryMockup />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={inViewOnce}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              className="lg:col-span-5"
+            >
+              <Badge tone="brand" icon={Sparkles}>Expiry Intelligence</Badge>
+              <h2 className="mt-4 font-display text-3xl font-bold text-navy-900 sm:text-4xl">
+                Stop losing money to expiry — quietly, every month.
+              </h2>
+              <p className="mt-4 text-lg text-ink-700">
+                Batch-level visibility, expiring-soon alerts, value-at-risk tracking, and a one-click
+                disposal report when something does slip through.
+              </p>
             </motion.div>
           </div>
         </Container>

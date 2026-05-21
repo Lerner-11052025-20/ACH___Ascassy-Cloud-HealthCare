@@ -23,7 +23,11 @@ import FeatureCard from '../components/ui/FeatureCard.jsx';
 import OfferingCard from '../components/ui/OfferingCard.jsx';
 import BenefitCard from '../components/ui/BenefitCard.jsx';
 import ProblemCard from '../components/ui/ProblemCard.jsx';
-import DashboardMockup from '../components/ui/DashboardMockup.jsx';
+import {
+  OverviewMockup,
+  AIInsightsMockup,
+  InventoryMockup,
+} from '../components/ui/mockups/index.js';
 import { fadeUp, stagger, inViewOnce } from '../utils/motion.js';
 import { ecosystemLayers, whyAscassy } from '../data/ecosystem.js';
 import { offerings, productBridges } from '../data/offerings.js';
@@ -107,7 +111,7 @@ export default function HomePage() {
           >
             <div className="relative">
               <div aria-hidden="true" className="absolute -inset-8 -z-10 rounded-[2rem] bg-gradient-to-br from-brand-200/40 via-white to-teal-200/40 blur-2xl" />
-              <DashboardMockup />
+              <OverviewMockup />
             </div>
           </motion.div>
         </Container>
@@ -224,7 +228,8 @@ export default function HomePage() {
             >
               <div className="relative">
                 <div aria-hidden="true" className="absolute -inset-6 -z-10 rounded-[2rem] bg-gradient-to-br from-brand-100 via-white to-teal-100 blur-xl" />
-                <DashboardMockup />
+                {/* Different screen here — surfaces AI Insights to vary the story */}
+                <AIInsightsMockup />
               </div>
             </motion.div>
           </div>
@@ -382,7 +387,8 @@ export default function HomePage() {
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
               className="lg:col-span-6"
             >
-              <DashboardMockup />
+              {/* Third screen — Inventory + AI stock recommendation */}
+              <InventoryMockup />
             </motion.div>
           </div>
         </Container>
